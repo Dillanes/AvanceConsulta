@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from .models import Omc23Nivel1
+from .models import Empleados, Usuario
+
 # Create your views here.
 
 def home(request):
-    todoE = Omc23Nivel1.objects.all()
-    return render(request,'home.html',{'Empleados':todoE})
+    
+    todosUsuarios = Usuario.objects.all()
+    return render(request,'home.html',{'Usuarios':todosUsuarios})
+
+
 
 def listaUsuarios(request):
     return render(request,'TablaUsuarios.html')

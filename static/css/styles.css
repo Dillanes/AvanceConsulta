@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Akshar', sans-serif;
+    background-color: red;
 }
 
 .hola {
@@ -71,7 +72,7 @@
     right: 38%;
     border: 1px solid black;
     border-radius: 12px;
-    transform: translateY(-600px);
+    transform: translateY(-700px);
     transition: all 1s;
 }
 
@@ -147,3 +148,10 @@
 .bt-aceptar:hover {
     width: 85px;
 }
+
+
+.contenedor-tabla{
+    width: 80%;
+    margin: auto;
+}
+

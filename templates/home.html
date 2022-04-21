@@ -26,27 +26,50 @@
                 </ul>
             </nav>
         </header>
-
-        {% for empleado in Empleados %} 
-         {{empleado.codigo}} 
-        {% endfor %}
-
+        <div class="contenedor-tabla">
+        <table name="tabla1">
+            <tr class="tr-table">
+                <th>IdUsuario</th>
+                <th>Nombre</th>
+                <th>Password</th>
+                <th>Rol</th>
+                <th>fechaCreacion</th>
+                <th>fechaAct</th>
+            </tr>
+            {% for us in Usuarios%}
+            <tr class="tr-table">
+                 <td>{{us.idusuario}}</td>
+                 <td>{{us.nombre}}</td>
+                 <td>{{us.password}}</td>
+                 <td>{{us.rol}}</td>
+                 <td>{{us.fechacreacion}}</td>
+                 <td>{{us.fechaact}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+        
+        
+        
         <section class="seccion">
             <div class="bt-salir">X</div>
             <div class="titulo-reg">REGISTRARSE</div>
-            <form action="" method="" class="registrarse">
-
-                <input class="input-item" type="mail" placeholder="Example@c&c.com">
-                <input class="input-item" type="password" placeholder="Contraseña...">
-                <select class="select-elementos">
+            <form method="POST" class="registrarse">
+                {% csrf_token %}
+                <input class="input-item" type="mail" name="nombre-input" placeholder="Example@c&c.com">
+                <input class="input-item" type="password" name="password-input" placeholder="Contraseña...">
+                <select class="select-elementos" name="rol-select">
                     <option value="Administrador">Administrador</option>
                     <option value="Empleado">Empleado</option>
                     <option value="Invitado">Invitado</option>
                 </select>
                 <input type="submit" value="ACEPTAR" class="bt-aceptar">
+                
             </form>
         </section>
     </div>
+    
     <script src="{% static 'js/cod.js'%}"></script>
 </body>
 
