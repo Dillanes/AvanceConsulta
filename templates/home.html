@@ -7,20 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo%} www.consulta.com {%endblock titulo%}</title>
     <link rel="stylesheet" href="{% static 'css\styles.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- FONTS -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="hola">Hola</h1>
-    <a href="{% url 'Usuarios:listaUsuarios'%}" class="enviar">Next</a>
+    <div class=" contenedor">
+        <header class="cabecera">
+            <nav class="barra-navegacion">
+                <ul class="lista">
+                    <li class="l-lista"><a href="#">INICIO</a></li>
+                    <li class="l-lista bt-activate" ><a href="#">REGISTRARSE</a></li>
+                    <li class="l-lista"><a href="{% url 'Usuarios:listaUsuarios'%}" >INGRESAR</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="seccion" >
+            <div class="bt-salir">X</div>
+            <div class="titulo-reg">REGISTRARSE</div>
+            <form action="" method="" class="registrarse">
+                
+                <input class="input-item" type="mail" placeholder="Example@c&c.com">
+                <input class="input-item" type="password" placeholder="Contraseña...">
+                <select class="select-elementos">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Empleado">Empleado</option>
+                    <option value="Invitado">Invitado</option>
+                </select>
+                <input type="submit" value="ACEPTAR" class="bt-aceptar">
+            </form>
+        </section>
+    </div>
+    <script src="{% static 'js/cod.js'%}"></script>
 </body>
-<div class=" contenedor">
-    <header class="cabecera">
-        <mav class="barra-navegacion">
-            <ul class="lista">
-                <li class="l-lista"><a href="#">INICIO</a></li>
-                <li class="l-lista"><a href="#">REGISTRARSE</a></li>
-                <li class="l-lista"><a href="#">INGRESAR</a></li>
-            </ul>
-        </mav>
-    </header>
-</div>
+
 </html>
