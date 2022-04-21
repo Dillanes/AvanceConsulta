@@ -1,0 +1,26 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo%} www.consulta.com {%endblock titulo%}</title>
+    <link rel="stylesheet" href="{% static 'css\styles.css'%}">
+</head>
+<body>
+    <h1 class="hola">Hola</h1>
+    <a href="{% url 'Usuarios:listaUsuarios'%}" class="enviar">Next</a>
+</body>
+<div class=" contenedor">
+    <header class="cabecera">
+        <mav class="barra-navegacion">
+            <ul class="lista">
+                <li class="l-lista"><a href="#">INICIO</a></li>
+                <li class="l-lista"><a href="#">REGISTRARSE</a></li>
+                <li class="l-lista"><a href="#">INGRESAR</a></li>
+            </ul>
+        </mav>
+    </header>
+</div>
+</html>
