@@ -1,7 +1,8 @@
 {% load static%}
+
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,46 +14,59 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 
 <body>
+    
     <div class=" contenedor">
         <header class="cabecera">
             <nav class="barra-navegacion">
                 <ul class="lista">
-                    <li class="l-lista"><a href="#">INICIO</a></li>
-                    <li class="l-lista bt-activate"><a href="#">REGISTRARSE</a></li>
+                    <li class="l-lista"><a href="">INICIO</a></li>
+                    <li class="l-lista bt-activate"><a href="{% url 'Usuarios:Registrarse'%}">REGISTRARSE</a></li>
                     <li class="l-lista"><a href="{% url 'Usuarios:listaUsuarios'%}">INGRESAR</a></li>
                 </ul>
             </nav>
         </header>
+
         <div class="contenedor-tabla">
-        <table name="tabla1">
-            <tr class="tr-table">
-                <th>IdUsuario</th>
-                <th>Nombre</th>
-                <th>Password</th>
-                <th>Rol</th>
-                <th>fechaCreacion</th>
-                <th>fechaAct</th>
+        <table name="tabla1" class="styled-table">
+            <thead>
+            <tr class="tr-table header-table" >
+                <th class="td-table">IdUsuario</th>
+                <th class="td-table">Nombre</th>
+                <th class="td-table">Password</th>
+                <th class="td-table">Rol</th>
+                <th class="td-table">fechaCreacion</th>
+                <th class="td-table">fechaAct</th>
+                <th class="td-table">Accion</th>
             </tr>
+        </thead>
             {% for us in Usuarios%}
-            <tr class="tr-table">
-                 <td>{{us.idusuario}}</td>
-                 <td>{{us.nombre}}</td>
-                 <td>{{us.password}}</td>
-                 <td>{{us.rol}}</td>
-                 <td>{{us.fechacreacion}}</td>
-                 <td>{{us.fechaact}}</td>
+            <tbody>
+            <tr class="active-row">
+                
+                 <td class="td-table">{{us.idusuario}}</td>
+                 <td class="td-table">{{us.nombre}}</td>
+                 <td class="td-table">{{us.password}}</td>
+                 <td class="td-table">{{us.rol}}</td>
+                 <td class="td-table">{{us.fechacreacion}}</td>
+                 <td class="td-table">{{us.fechaact}}</td>
+                 <td class="td-table td-bts-accion">
+                    <i class="fa-solid fa-screwdriver-wrench icon icon1"></i>                   
+                    <i class="fa-solid fa-rectangle-xmark icon icon2"></i>
+                 </td>
                 
             </tr>
+        </tbody>
             {% endfor %}
         </table>
     </div>
         
         
         
-        <section class="seccion">
+        <!-- <section class="seccion">
             <div class="bt-salir">X</div>
             <div class="titulo-reg">REGISTRARSE</div>
             <form method="POST" class="registrarse">
@@ -60,17 +74,17 @@
                 <input class="input-item" type="mail" name="nombre-input" placeholder="Example@c&c.com">
                 <input class="input-item" type="password" name="password-input" placeholder="Contraseña...">
                 <select class="select-elementos" name="rol-select">
-                    <option value="Administrador">Administrador</option>
                     <option value="Empleado">Empleado</option>
                     <option value="Invitado">Invitado</option>
                 </select>
                 <input type="submit" value="ACEPTAR" class="bt-aceptar">
                 
             </form>
-        </section>
+        </section> -->
     </div>
-    
+    <footer class="footer">
+        Derechos de autor C&C
+    </footer>
     <script src="{% static 'js/cod.js'%}"></script>
 </body>
-
 </html>

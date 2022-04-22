@@ -5,6 +5,7 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from tkinter import CASCADE
 from django.db import models
 
 
@@ -236,7 +237,7 @@ class Draftsupplier(models.Model):
 
 
 class Empleados(models.Model):
-    idempleado = models.AutoField(db_column='idEmpleado', primary_key=True)  # Field name made lowercase.
+    idempleado = models.AutoField(auto_created=True, db_column='idEmpleado', primary_key=True)  # Field name made lowercase.
     codigo = models.CharField(db_column='Codigo', max_length=5)  # Field name made lowercase.
     fechaing = models.DateField(db_column='fechaIng')  # Field name made lowercase.
     fechabaja = models.DateField(db_column='fechaBaja', blank=True, null=True)  # Field name made lowercase.
@@ -247,9 +248,9 @@ class Empleados(models.Model):
     ubicacion = models.CharField(db_column='Ubicacion', max_length=45, blank=True, null=True)  # Field name made lowercase.
     procedencia = models.CharField(db_column='Procedencia', max_length=10, blank=True, null=True)  # Field name made lowercase.
     observaciones = models.CharField(db_column='Observaciones', max_length=250, blank=True, null=True)  # Field name made lowercase.
-    fk_cargo = models.IntegerField(db_column='fk_Cargo', blank=True, null=True)  # Field name made lowercase.
-    fk_personal = models.IntegerField(db_column='fk_Personal', blank=True, null=True)  # Field name made lowercase.
-
+    fk_cargo = models.ForeignKey('Cargo',db_column='fk_Cargo', on_delete=models.CASCADE,auto_created=True)  # Field name made lowercase.
+    fk_personal = models.ForeignKey('Personal',db_column='fk_Personal',auto_created=True, on_delete=models.CASCADE)  # Field name made lowercase.
+    
     class Meta:
         managed = False
         db_table = 'Empleados'
